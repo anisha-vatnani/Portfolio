@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Three.js import map -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js",
+      "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <title>Anisha Vatnani — Portfolio</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap" rel="stylesheet">
+</head>
+
+<body id="top" class="maya-page">
+  <!-- 3D Background Canvas -->
+  <canvas
+    id="bg3d"
+    class="bg-canvas"
+    aria-hidden="true"
+  ></canvas>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a href="#top" class="nav-icon nav-home" aria-label="Home">
+      <img src="home.png" alt="Home" />
+    </a>
+
+    <nav class="nav">
+   <button class="nav-icon" id="openAbout" aria-label="About">
+  <img src="about.png" alt="About" />
+</button>
+
+      <a href="#" class="nav-icon resume" aria-label="Resume (coming soon)">
+        <img src="resume.png" alt="Resume" />
+      </a>
+
+      <a href="#contact" class="nav-icon">
+        <img src="contact.png" alt="Contact" />
+      </a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero hero-image">
+  </section>
+
+  <main>
+    <!-- Projects -->
+   <section id="projects" class="section projects editorial-projects">
+
+  <div class="editorial-grid">
+
+    <!-- Project 1 -->
+    <button class="editorial-project" data-overlay="project1Overlay">
+      <img src="maya-1.png" alt="Project Name One" />
+      <h3 class="editorial-title">Māyā : Senior Year Thesis Project
+        <br> <em>2025</em>
+      </h3>
+    </button>
+
+    <!-- Project 2 -->
+    <button class="editorial-project" data-overlay="project2Overlay">
+      <img src="boiling-point/project-2.png" alt="Project Name Two" />
+      <h3 class="editorial-title">The Boiling Point
+         <br> <em>2024</em>
+      </h3>
+    </button>
+
+    <!-- Project 3 -->
+    <button class="editorial-project" data-overlay="project3Overlay">
+      <img src="gamejam/title.png" alt="Project Name Three" />
+      <h3 class="editorial-title">Traffic Jam
+         <br> <em>2025</em>
+      </h3>
+    </button>
+
+  </div>
+</section>
+
+
+    <!-- About -->
+     <!--<section id="about" class="section">
+      <div class="section-head">
+        <h2>About</h2>
+        <p>A short paragraph about your background + what you’re looking for.</p>
+      </div>
+
+      <div class="about-card">
+        <p>
+          Write 3–5 lines here. Keep it simple. You can add awards, tools, industries, etc.
+        </p>
+      </div>
+    </section> -->
+
+    <!-- Contact -->
+<section id="contact" class="section">
+  <div class="section-head">
+    <h2>Best way to reach me!</h2>
+  </div>
+
+  <div class="contact-buttons">
+    <a href="mailto:vatnanianisha@gmail.com" class="contact-btn">
+      Email
+    </a>
+
+    <a href="https://www.linkedin.com/in/anisha-vatnani-903a39228"
+       target="_blank"
+       rel="noreferrer"
+       class="contact-btn">
+      LinkedIn
+    </a>
+
+    <a href="https://www.instagram.com/anisha.fbx/"
+       target="_blank"
+       rel="noreferrer"
+       class="contact-btn">
+      Instagram
+    </a>
+  </div>
+</section>
+
+<!-- <footer class="footer">
+  <a href="#top">Back to top ↑</a>
+</footer> -->
+  </main>
+
+  <!-- Main JS -->
+  <script type="module" src="main.js"></script>
+
+ <div class="about-page" id="aboutOverlay" aria-hidden="true">
+  <button class="about-close" id="closeAbout" aria-label="Close about">✕</button>
+
+  <div class="about-page-content">
+    <h1>Anisha Vatnani</h1>
+    <p>
+      Anisha Vatnani is a mixed media artist based in Toronto/Dubai, working primarily in digital and 3D media. Her practice combines technical precision with experimentation across platforms, supported by a strong understanding of collaborative and production-driven workflows.
+    </p>
+  <img src="ID_card.png" class="about-ID" />
+   <img src="earphones.png" class="about-earphones" />
+    <img src="star.png" class="about-star" />
+  </div>
+</div>
+
+<div class="overlay" id="project1Overlay" aria-hidden="true">
+  <div class="overlay-backdrop"></div>
+
+  <div class="overlay-panel maya-panel">
+    <button class="overlay-close" aria-label="Close">✕</button>
+
+    <h2>Māyā</h2>
+    <p>Senior Year Thesis Project · 2025</p>
+
+    <div class="maya-layout">
+      <img src="maya-1.png" alt="Main image" class="maya-main" />
+   <img src="arrow-1.png" alt="Secondary image" class="maya-secondary" />
+      <p class="maya-description">
+Māyā is a <b>choose-your-own-adventure game</b> that delves into the philosophical concept of illusion, rooted in the Sanskrit term Māyā. While often translated as "illusion," Māyā suggests that the world we perceive is a distraction, obscuring the true reality.       </p>
+ </div>
+ <img src="arrow-2.png" alt="Third image" class="maya-third" />
+  <img src="arrow-star.png" alt="Star" class="maya-star" />
+   <img src="arrow-3.png" alt="Doodle" class="maya-arrow" />
+   <img src="tv.png" alt="TVDoodle" class="maya-tv" />
+    <img src="ant-1.png" alt="Ant1Doodle" class="maya-ant" />
+    <img src="ant-2.png" alt="Ant2Doodle" class="maya-ant1" />
+    <img src="ant-1.png" alt="Ant1Doodle" class="maya-ant2" />
+ <img src="ant-2.png" alt="Ant1Doodle" class="maya-ant3" />
+ <img src="ant-3.png" alt="Ant1Doodle" class="maya-ant4" />
+
+ <div class="maya-video">
+  <video controls>
+    <source src="maya-trailer.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+<p class="maya-description second-paragraph">
+In Māyā, you are asked a simple question:
+Do you accept the world in front of you... or do you question it?
+<br>
+<br>
+Rooms shift. Memories fracture. Identity slips through your fingers. You move forward, unsure whether you are dreaming or awake.
+<br>
+<br>
+You are given choices at every turn.
+But each one quietly guides you back to the same room.
+<br>
+<br>
+Maya explores the illusion of free will and the unsettling possibility that your reality was never yours to control...  </p>
+  <div class="maya-fan-container">
+<div class="maya-fan open">
+  <div class="fan-item"><img src="bonus-1.png" class="fan-img" /></div>
+  <div class="fan-item"><img src="bonus-2.png" class="fan-img" /></div>
+  <div class="fan-item"><img src="bonus-3.png" class="fan-img" /></div>
+  <div class="fan-item"><img src="bonus-4.png" class="fan-img" /></div>
+  <div class="fan-item"><img src="bonus-5.png" class="fan-img" /></div>
+</div>
+</div>
+
+<p class="maya-description third-paragraph">
+<i>Maya was constructed with intention at every level.</i>
+<br>
+<br>
+I developed the script and directed the voice performance to create an unsettling, controlled tone throughout the experience. Each environment was 3D modeled from scratch, with extensive color and lighting tests to reinforce emotional shifts. Characters were designed, rigged, and integrated into the world to support the narrative structure.
+<br>
+<br>
+What feels minimal on screen was carefully orchestrated behind the scenes.
+</p>
+
+<div class="maya-grid">
+  <img src="grid-1.png" class="grid-img" />
+  <img src="grid-2.png" class="grid-img" />
+  <img src="grid-3.png" class="grid-img" />
+  <img src="grid-4.png" class="grid-img" />
+</div>
+<p class="maya-description forth-paragraph">
+  A series of in-game stills highlighting the lighting, grain, and tonal aesthetic of Maya.
+</p>
+
+<div class="maya-video video-two">
+  <video controls>
+    <source src="joystick.mp4" type="video/mp4">
+  </video>
+</div>
+<p class="maya-description fifth-paragraph">
+Maya was built in 3JS for the web and paired with a custom minimalist joystick, developed with Aaryan Pashine. Engineered from scratch, the controller made choice feel intentional and consequential, shifting the experience with each new player.
+<br>
+<br>
+Displayed on a 90s CRT television with surround sound, the retro installation heightened the game’s psychological tension, blurring the boundary between illusion and reality.
+</p>
+
+<img src="gradex-1.png" alt="forth image" class="maya-forth" />
+
+<div class="maya-video video-three">
+  <video controls>
+    <source src="gradex-2.mp4" type="video/mp4">
+  </video>
+</div>
+
+<div class="video-four">
+  <video controls>
+    <source src="gradex-3.mp4" type="video/mp4">
+  </video>
+</div>
+
+<img src="gradex-4.png" alt="fifth image" class="maya-fifth" />
+
+<p class="maya-description caption-1">
+  Players interacting with the game
+</p>
+
+<p class="maya-description caption-2">
+An intentionally dim, curtained space layered with carpets and cushions drew focus to the glowing CRT, recreating the intimate nostalgia of sitting close to a box TV while amplifying the installation’s eerie atmosphere.
+</p>
+
+<p class="maya-description caption-3">
+The project was additionally adapted into a short film, reinterpreting the interactive narrative for a seated audience.
+</p>
+
+</div>
+</div>
+
+
+<div class="overlay" id="project2Overlay" aria-hidden="true">
+  <div class="overlay-backdrop"></div>
+
+  <div class="overlay-panel project2-panel">
+    <button class="overlay-close" aria-label="Close">✕</button>
+
+    <div class="project2-layout">
+      <h2>The Boiling Point</h2>
+      <p>2024</p>
+
+      <video class="project2-main" autoplay muted loop playsinline poster="boiling-point/project-2.png">
+  <source src="boiling-point/clips.mov" type="video/mp4" />
+</video>
+
+      <p class="boiling-description">
+Embark on a chaotic journey with Raj into the world of chai in this short animation. "The Boiling Point". When Raj's mother leaves him all alone in an unknown territory, the Kitchen, he's left with no choice but to make chai for their guests. Raj's hilarious misadventures unfolds as he clumsily combines ingredients, overflows the pot, and leaves chaos in his wake. What he doesn't realize is the his unique mistakes lead to a surprisingly delightful brew. 
+<br>
+<br>
+"The Boiling Point" is a hybrid animation, seamlessly blending 3D and 2D styles, offering a warm toned, engaging story that unveils the magic of brewing a cup of chai.
+
+</p> 
+    </div>
+    <img src="raj.png" alt="" class="character-raj" />
+ 
+    <p class="raj-description">
+Raj is illustrated in 2D using Procreate, with expressive features that exaggerate every moment of panic. He wears a loose white vest and blue boxer shorts, the classic at-home summer outfit for young boys in India. The look keeps him familiar and relatable, while making his kitchen chaos feel even more endearing.
+</p> 
+
+<div class="boiling-grid-wrapper">
+<div class="boiling-grid">
+  <img src="boiling-point/grid-1.png" class="grid-item" />
+  <video class="grid-item" autoplay muted loop playsinline>
+    <source src="boiling-point/grid-2.mp4" type="video/mp4">
+  </video>
+  <img src="boiling-point/grid-3.png" class="grid-item" />
+ <video class="grid-item" autoplay muted loop playsinline>
+    <source src="boiling-point/grid-4.mp4" type="video/mp4">
+  </video>
+</div>
+  </div>
+
+      <div class="boiling-fan-container">
+<div class="boiling-fan open">
+  <div class="fan-item"><img src="boiling-point/bonus-1.png" class="fan-img" /></div>
+  <div class="fan-item"><img src="boiling-point/bonus-2.png" class="fan-img" /></div>
+  <div class="fan-item"><img src="boiling-point/bonus-3.png" class="fan-img" /></div>
+  <div class="fan-item"><img src="boiling-point/bonus-4.png" class="fan-img" /></div>
+</div>
+</div>
+<p class="grid-caption">
+3D hand painted scenes and backgrounds
+</p> 
+
+<p class="fan-caption">
+The kitchen background was the most fun part of this project for me. I modeled and animated everything in Blender, then textured and hand-painted each surface in Substance Painter.
+</p>
+
+<p class="last-caption">
+Super cute project that made me feel so connected with me, my culture and my younger-self
+</p>
+
+<img src="boiling-point/spice-1.png" class="spice-1" />
+<img src="boiling-point/spice-2.png" class="spice-2" />
+<img src="boiling-point/spice-3.png" class="spice-3" />
+<img src="boiling-point/spice-4.png" class="spice-4" />
+<img src="boiling-point/spice-5.png" class="spice-5" />
+<img src="boiling-point/spice-6.png" class="spice-6" />
+
+<img src="boiling-point/doodle-1.png" class="doodle-1" />
+<img src="boiling-point/doodle-2.png" class="doodle-2" />
+<img src="boiling-point/doodle-3.png" class="doodle-3" />
+<img src="boiling-point/doodle-4.png" class="doodle-4" />
+<img src="boiling-point/doodle-5.png" class="doodle-5" />
+<img src="arrow-star.png" class="doodle-6" />
+
+
+</div>
+</div>
+
+<div class="overlay" id="project3Overlay" aria-hidden="true">
+  <div class="overlay-backdrop"></div>
+
+  <div class="overlay-panel project3-panel">
+    <button class="overlay-close" aria-label="Close">✕</button>
+ 
+    <div class="project3-layout">
+<h2>Traffic Jam</h2>
+      <p>Game Jam Project · 2025</p>
+
+       <video class="project3-main" autoplay muted loop playsinline poster="boiling-point/project-2.png">
+  <source src="gamejam/intersection.mp4" type="video/mp4" />
+</video>
+
+<p class="traffic-introduction">
+This was a fun little project developed with two close friends during a game jam, purely driven by experimentation and creative play. Using Godot, we created an isometric low-poly traffic control game where players manage the intersection traffic by manually toggling the traffic lights.
+</p>
+
+<div class="traffic-fan-container">
+  <div class="traffic-fan">
+    <!-- Video on top -->
+    <div class="traffic-fan-item traffic-fan-video-item">
+      <video class="traffic-fan-video" autoplay muted loop playsinline>
+        <source src="gamejam/tims.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- Image behind -->
+    <div class="traffic-fan-item traffic-fan-image-item">
+      <img src="gamejam/tims-ref.png" class="traffic-fan-base" />
+    </div>
+  </div>
+</div>
+
+<p class="traffic-p2">
+I was responsible for the visual development and asset creation. Using Blender for modelling and Substance Painter for texturing, I developed a cohesive hand-painted style optimized for speed and clarity. 
+</p>
+
+<div class="traffic2-fan-container">
+  <div class="traffic2-fan">
+    <!-- Video on top -->
+    <div class="traffic2-fan-item traffic2-fan-video-item">
+      <video class="traffic2-fan-video" autoplay muted loop playsinline>
+        <source src="gamejam/shoppers.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- Image behind -->
+    <div class="traffic2-fan-item traffic2-fan-image-item">
+      <img src="gamejam/shoppers-ref.png" class="traffic2-fan-base" />
+    </div>
+  </div>
+</div>
+
+<div class="traffic-grid-wrapper">
+<div class="traffic-grid">
+  
+<video class="Tgrid-item" autoplay muted loop playsinline>
+    <source src="gamejam/vehicle-1.mp4" type="video/mp4">
+  </video> 
+  
+  <video class="Tgrid-item" autoplay muted loop playsinline>
+    <source src="gamejam/vehicle-2.mp4" type="video/mp4">
+  </video>
+  
+  <video class="Tgrid-item" autoplay muted loop playsinline>
+    <source src="gamejam/vehicle-3.mp4" type="video/mp4">
+  </video>
+
+ <video class="Tgrid-item" autoplay muted loop playsinline>
+    <source src="gamejam/vehicle-4.mp4" type="video/mp4">
+  </video>
+</div>
+  </div>
+
+  <p class="traffic-fact"> 
+    Fun Fact: The game was actually inspired by the intersection I lived on, and coincidentally connected all of us in Toronto, ON, hence why it was even more fun to work on this together.
+</p>
+
+<img src="gamejam/doodle-1.png" class="Tdoodle-1" />
+<img src="gamejam/doodle-2.png" class="Tdoodle-2" />
+<img src="gamejam/doodle-3.png" class="Tdoodle-3" />
+<img src="gamejam/doodle-4.png" class="Tdoodle-4" />
+<img src="gamejam/doodle-4.png" class="Tdoodle-5" />
+
+ </div>
+  </div>
+</div>
+
+<div class="scrolling-bar">
+  <div class="scrolling-text">
+    <span>
+      Welcome to Anisha's website! • It's still under construction 🚧, but its made from scratch with love •
+      <a href="https://www.instagram.com/anisha.fbx/" target="_blank" rel="noreferrer">
+        Catch Anisha's more fun, small, projects on her Instagram! • Click Here! •
+      </a>
+    </span>
+    <span>
+      Welcome to Anisha's website! • It's still under construction 🚧, but its made from scratch with love •
+      <a href="https://www.instagram.com/anisha.fbx/" target="_blank" rel="noreferrer">
+        Catch Anisha's more fun, small, projects on her Instagram! • Click Here! •
+      </a>
+    </span>
+    <span>
+      Welcome to Anisha's website! • It's still under construction 🚧, but its made from scratch with love •
+      <a href="https://www.instagram.com/anisha.fbx/" target="_blank" rel="noreferrer">
+        Catch Anisha's more fun, small, projects on her Instagram! • Click Here! •
+      </a>
+    </span>
+  </div>
+</div>
+
+<div class="project-modal" id="projectModal">
+  <div class="project-modal-content">
+    <button class="modal-close">&times;</button>
+    <div class="modal-body">
+      <!-- Project content will go here -->
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

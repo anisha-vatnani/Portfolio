@@ -1,0 +1,1865 @@
+:root{
+  --bg: #F6F1E8;
+  --text: #000000;
+  --muted: rgba(0, 0, 0, 0.7);
+  --card: rgba(0, 0, 0, 0.06);
+  --stroke: rgba(0, 0, 0, 0.12);
+  --accent: #c7ff66;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+body{
+  cursor: url("cursor.png") 24 24, auto;
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: radial-gradient(1200px 800px at 20% -10%, rgba(199,255,102,.12), transparent 55%),
+              radial-gradient(900px 600px at 90% 0%, rgba(255,255,255,.06), transparent 50%),
+              var(--bg);
+  color: var(--text);
+}
+
+/* ✅ ADD THIS */
+.bg-canvas{
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+#bg3d{
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 50;
+  pointer-events: none;
+}
+
+a{ color: inherit; text-decoration: none; }
+a:hover{ opacity: .9; }
+
+.site-header{
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index: 10;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 18px 22px;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+
+main{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 22px 60px;
+}
+
+.logo-box{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width: 56px;
+  height: 32px;
+  border: 1px solid var(--stroke);
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: .12em;
+  color: var(--muted);
+}
+
+.nav{
+  display:flex;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.nav a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  border-radius: 999px;
+}
+
+.nav a:hover{
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+}
+
+.nav-icon{
+  padding: 6px 8px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.12s cubic-bezier(.34,1.56,.64,1),
+    background-color 0.2s ease;
+}
+
+.nav-icon:hover{
+  background: rgba(255,255,255,.06);
+  transform: rotate(-6deg);
+}
+
+.nav-icon:active{
+  transform: scale(0.92);
+}
+
+.nav-icon img{
+  height: 80px;
+  width: auto;
+  display: block;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+button.nav-icon {
+  background: none;
+  border: none;
+  padding: 6px 8px;
+  border-radius: 999px;
+  appearance: none;
+}
+
+a,
+button,
+.nav-icon,
+.project-row{
+  cursor: url("cursor-hover.png") 12 12, pointer;
+}
+
+/* …rest of your CSS continues unchanged … */
+
+
+.nav-home img{
+  height: 100px; /* same as other icons */
+}
+
+main{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 22px 60px;
+}
+
+
+.hero{
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+
+/* Bottom-left name */
+.hero-name{
+ margin: 0;
+  font-size: clamp(24px, 3.4vw, 36px);
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #000000;
+  white-space: nowrap;
+
+
+}
+
+
+/* Full-page background image */
+.hero-image{
+   position: relative;
+  overflow: hidden;
+  background: var(--bg);
+
+}
+.hero-image::before{
+   filter: drop-shadow(0px 10px 3px rgba(0,0,0,0.35));
+  content: "";
+  position: absolute;
+  inset: -10%; /* gives room for rotation */
+  background-image: url("hero.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* POSITIONING */
+  background-position: 65% 45%;
+
+  /* ROTATION */
+  transform: rotate(4deg) scale(0.8) translateY(-100px);
+
+  z-index: 0;
+}
+
+.hero > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional text overlay */
+.hero-overlay{
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 22px 34px;
+}
+
+.hero-title{
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1.05;
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle{
+  margin: 0 0 18px;
+  max-width: 60ch;
+  color: rgba(244,244,245,.85);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.hero-signature{
+ position: absolute;
+  bottom: 10%;
+  left: 24px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  white-space: nowrap;
+  flex-wrap: nowrap;
+
+  width: calc(100vw - 48px); /* THIS is the key */
+  max-width: 1800px;
+}
+
+.hero-line{
+  height: 2px;
+  flex: 1;
+min-width: 120px;
+max-width: 1200px;
+  background: #000000;
+  opacity: 0.85;
+    transform: translateY(7px);
+}
+
+.hero-role{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  color: #000000;
+  opacity: 0.85;
+  white-space: nowrap;
+    transform: translateY(5px);
+}
+
+
+/* Scroll hint */
+.scroll-cue{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: rgba(244,244,245,.75);
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.25);
+  padding: 10px 14px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+.scroll-cue:hover{
+  color: var(--text);
+  background: rgba(0,0,0,.35);
+}
+
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,.06);
+  font-size: 14px;
+}
+.btn-ghost{
+  background: transparent;
+}
+
+.section{
+  padding: 22px 0;
+  border-top: 1px solid var(--stroke);
+  scroll-margin-top: 80px
+}
+
+.section-head h2{
+  margin: 0 0 6px;
+  font-size: 18px;
+  letter-spacing: .02em;
+}
+.section-head p{
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.projects-list{
+  display: flex;
+  flex-direction: column;
+}
+
+.project-row{
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 18px;
+  padding: 18px 0;
+  border-top: 1px solid var(--stroke);
+  align-items: center;
+}
+
+.project-row:first-child{
+  border-top: 0;
+  padding-top: 6px;
+}
+
+.project-thumb{
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,.04);
+  aspect-ratio: 4 / 3;
+}
+
+.project-thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.28s ease;
+}
+
+.project-info{
+  min-width: 0;
+}
+
+.project-top{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.project-title{
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: 0.01em;
+}
+
+.project-year{
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.project-meta{
+  margin: 6px 0 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.project-desc{
+  margin: 0 0 10px;
+  color: rgba(244,244,245,.82);
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 70ch;
+}
+
+.project-cta{
+  color: var(--accent);
+  font-size: 14px;
+}
+
+/* Hover: subtle + premium */
+.project-row:hover .project-thumb img{
+  transform: scale(1.03);
+}
+
+.project-row:hover .project-cta{
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+
+/* Responsive */
+@media (max-width: 720px){
+  .project-row{
+    grid-template-columns: 1fr;
+  }
+  .project-thumb{
+    aspect-ratio: 16 / 9;
+  }
+}
+
+
+
+.about-card, .contact-card{
+  padding: 14px;
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+  background: var(--card);
+  color: rgba(244,244,245,.82);
+  line-height: 1.7;
+}
+
+#contact .section-head {
+  font-family: "Rubik Bubbles", system-ui, sans-serif;
+  margin-bottom: 40px;
+  color: #03288e;
+  text-align: center;
+}
+
+.contact-buttons {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border: 2px dashed #000;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.contact-btn:hover {
+  background: #021086;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.footer{
+  padding-top: 30px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* =======================
+   ABOUT OVERLAY
+======================= */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+}
+
+.overlay.is-open {
+  display: block;
+}
+
+/* Darkened backdrop */
+.overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  backdrop-filter: blur(6px);
+}
+
+/* Panel */
+.overlay-panel {
+  position: relative;
+  max-width: 90vw;
+  width:1500px; 
+  max-height: 85vh;
+  margin: 5vh auto 0;
+  padding: 40px;
+  background: #F6F1E8;
+  color: #000;
+  border-radius: 5px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  animation: overlayIn 0.3s ease;
+  overflow-y: auto;
+}
+
+.overlay-panel img {
+  max-width: 100%;
+  max-height: 60vh;   /* won't exceed the panel width*/
+  height: auto;       /* keep aspect ratio */
+  border-radius: 4px; /* optional: rounded corners */
+  display: block;      /* remove inline spacing issues */
+  margin: 1rem 0; 
+  object-fit: contain;    /* spacing above/below image */
+}
+
+/* Close button */
+.overlay-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: url("cursor-hover.png") 12 12, pointer;
+}
+
+/* Text */
+.overlay-panel h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.overlay-panel p {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.overlay-meta {
+  margin-top: 14px;
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+.overlay-panel {
+  text-align: center;
+}
+
+.overlay-panel h2 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.overlay-panel h2 + p {
+  margin-top: 0.3rem;
+}
+
+/* =====================
+   Maya Page Overlay Styles
+===================== */
+
+.maya-page #project1Overlay .overlay-panel {
+  position: relative;
+  text-align: center; /* allow freeform placement */
+}
+
+.maya-page #project1Overlay .maya-layout {
+  display: block; /* freeform stacking */
+  position: relative;
+  min-height: 900px;
+  width: 100%;
+}
+
+/* Main image with border */
+.maya-page #project1Overlay .maya-layout img.maya-main {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  border-radius: 0; /* no rounded edges */
+  border: 1px dashed #000; /* only on main image */
+  background: transparent;
+  padding: 8px;
+  transform: rotate(-3deg) translateY(15px) scale(0.92);
+  z-index: 2;
+}
+
+/* Secondary images (no border) */
+.maya-page #project1Overlay .maya-layout img.maya-secondary {
+  position: absolute;
+  top: -10px;     /* control vertical placement */
+  left: 650px;    /* control horizontal placement */
+  width: 250px;
+  transform: rotate(4deg);
+  z-index: 1;         /* remove padding if needed */
+}
+
+.maya-page #project1Overlay .maya-third {
+  position: absolute;
+  top: 420px;   /* vertical placement */
+  left: 700px;  /* horizontal placement */
+  max-width: 300px;
+  transform: rotate(-6deg);
+  z-index: 3;
+}
+
+.maya-page #project1Overlay .maya-star {
+  position: absolute;
+  top: 480px;   /* vertical placement */
+  left: 75px;  /* horizontal placement */
+  max-width: 400px;
+  z-index: 3;
+}
+
+.maya-page #project1Overlay .maya-arrow {
+  position: absolute;
+  top: 2380px;   /* vertical placement */
+  left: 195px;  /* horizontal placement */
+  max-width: 420px;
+  z-index: 3;
+}
+
+.maya-page #project1Overlay .maya-tv {
+  position: absolute;
+  top: 1585px;   /* vertical placement */
+  left: 1000px;  /* horizontal placement */
+  max-width: 250px;
+   transform: rotate(-6deg);
+  z-index: 4;
+}
+
+.maya-page #project1Overlay .maya-ant {
+  position: absolute;
+  top: 2670px;   /* vertical placement */
+  left: 395px;  /* horizontal placement */
+  max-width: 420px;
+  transform: rotate(-9deg);
+  z-index: 3;
+}
+
+.maya-page #project1Overlay .maya-ant1 {
+  position: absolute;
+  top: 3050px;   /* vertical placement */
+  left: 395px;  /* horizontal placement */
+  max-width: 420px;
+  transform: rotate(-6deg);
+  z-index: 3;
+}
+
+.maya-page #project1Overlay .maya-ant2 {
+  position: absolute;
+  top: 3350px;   /* vertical placement */
+  left: 395px;  /* horizontal placement */
+  max-width: 420px;
+  transform: rotate(-6deg);
+  z-index: 3;
+}
+
+.maya-page #project1Overlay .maya-ant3 {
+  position: absolute;
+  top: 950px;   /* vertical placement */
+  left: 320px;  /* horizontal placement */
+  max-width: 320px;
+  transform: rotate(-6deg);
+  z-index: 3;
+}
+
+.maya-page #project1Overlay .maya-ant4 {
+  position: absolute;
+  top: 2300px;   /* vertical placement */
+  left: 0px;  /* horizontal placement */
+  max-width: 650px;
+  transform: rotate(-6deg);
+  z-index: 3;
+}
+
+.maya-page #project1Overlay .maya-forth {
+  position: absolute;
+  top: 2700px;   /* vertical placement */
+  left: 40px;  /* horizontal placement */
+  max-width: 450px;
+  /* transform: rotate(-6deg); */
+  border: 1px dashed #000;
+  background: transparent;
+  padding: 8px;
+  border-radius: 0;
+  z-index: 3;
+}
+
+.maya-page #project1Overlay .maya-fifth {
+  position: absolute;
+  top: 3330px;   /* vertical placement */
+  left: 650px;  /* horizontal placement */
+  max-width: 500px;
+  /* transform: rotate(6deg); */
+  border: 1px dashed #000;
+  background: transparent;
+  padding: 8px;
+  border-radius: 0;
+  z-index: 3;
+}
+/* Editorial text */
+.maya-page #project1Overlay .maya-description {
+  margin-top: -18rem;      /* spacing from images */
+  margin-left: 700px;
+  max-width: 500px;
+  line-height: 1.6;
+  color: #000;           /* adjust to overlay color if needed */
+  position: relative;
+}
+
+.maya-page #project1Overlay .maya-video:not(.video-three) video {  position: relative;
+  top: -385px;
+  left: 500px;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border: 1px dashed #000;
+  background: transparent;
+  padding: 8px;
+  display: block;
+}
+
+.maya-page #project1Overlay .second-paragraph {
+  position: absolute;
+  top: 1050px;
+  left: -650px;
+  max-width: 450px;
+}
+
+.maya-layout {
+  position: relative;
+}
+
+.maya-fan-container {
+  position: absolute;
+  width: 520px;
+  height: 400px;
+  top: 1300px;
+  left: 300px;
+  cursor: pointer;
+  transform: rotate(35deg);
+}
+
+.maya-fan {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+}
+
+.fan-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform-origin: bottom center;
+  transition: transform 0.4s ease;
+}
+
+.fan-img {
+  width: 100%;
+  display: block;
+  border: 1px dashed #000;
+  padding: 4px;
+  transition: transform 0.3s ease;
+  z-index: 4;
+}
+
+/* Closed state */
+.fan-item {
+  transform: rotate(0deg);
+}
+
+/* Open state – smooth arc */
+.maya-fan.open .fan-item:nth-child(1)  { transform: rotate(-45deg) translateX(-220px); }
+.maya-fan.open .fan-item:nth-child(2)  { transform: rotate(-35deg) translateX(-170px); }
+.maya-fan.open .fan-item:nth-child(3)  { transform: rotate(-25deg) translateX(-120px); }
+.maya-fan.open .fan-item:nth-child(4)  { transform: rotate(-15deg) translateX(-70px); }
+.maya-fan.open .fan-item:nth-child(5)  { transform: rotate(-5deg)  translateX(-25px); }
+
+/* Hover — only scale image, NOT rotate wrapper */
+.maya-fan.open .fan-item:hover {
+  z-index: 999;
+}
+
+.maya-fan.open .fan-item:hover .fan-img {
+  transform: scale(1.08) translateY(-20px);
+}
+
+.maya-page #project1Overlay .third-paragraph {
+  position: absolute;
+  top: 1620px;
+  left: 210px;
+  max-width: 400px;
+}
+
+.maya-page #project1Overlay .forth-paragraph {
+  position: absolute;
+  top: 2360px;
+  left: -300px;
+  max-width: 2000px;
+}
+
+.maya-grid {
+  width: 100%;
+  max-width: 1400px;        /* adjust if needed */
+  margin: 200px auto 0;     /* space below fan */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;               /* space between images */
+}
+
+.grid-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px dashed #000; /* optional styling */
+  transition: transform 0.3s ease;
+}
+
+.grid-img:hover {
+  transform: scale(1.05);
+}
+
+.maya-page #project1Overlay .video-two {
+  position: relative;
+  top: 450px;
+  left: 0px;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  /* border: 1px dashed #000;
+  background: transparent;
+  padding: 8px; */
+  display: block;
+}
+
+.maya-page #project1Overlay .fifth-paragraph {
+  position: absolute;
+  top: 2500px;
+  left: -650px;
+  max-width: 450px;
+}
+
+.maya-page #project1Overlay .caption-1 {
+  position: absolute;
+  top: 3220px;
+  left: -310px;
+  max-width: 450px;
+  transform: rotate(90deg)
+}
+
+.maya-page #project1Overlay .caption-2 {
+  position: absolute;
+  top: 3400px;
+  left: -650px;
+  max-width: 520px;
+  /* transform: rotate(90deg) */
+}
+
+.maya-page #project1Overlay .caption-3 {
+  position: absolute;
+  top: 4020px;
+  left: -60px;
+  max-width: 520px;
+  /* transform: rotate(90deg) */
+}
+
+.maya-page #project1Overlay .video-three {
+  width: 500px;
+  height: 500px;        /* crop height */
+  overflow: hidden;     /* required */
+  position: relative;
+  background: red;      /* DEBUG — remove later */
+  top: 260px;
+  left: 650px;
+  z-index: 3;
+  /* transform: rotate(9deg) */
+
+}
+
+.maya-page #project1Overlay .video-three video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* actual crop */
+  display: block;
+}
+
+.maya-page #project1Overlay .video-four {
+  width: 500px;
+  height: 500px;        /* crop height */
+  overflow: hidden;     /* required */
+  position: absolute;
+  background: transparent;      /* DEBUG — remove later */
+  top: 3200px;
+  left: 50px;
+  z-index: 3;
+  /* transform: rotate(-7deg); */
+
+}
+
+.maya-page #project1Overlay .video-four video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* actual crop */
+  display: block;
+}
+
+/* =====================
+   Project 2 Overlay Styles
+===================== */
+
+.maya-page #project2Overlay .overlay-panel {
+  position: relative;
+  text-align: center;
+}
+
+.maya-page #project2Overlay .project2-layout {
+  display: block;
+  position: relative;
+  min-height: 900px;
+  width: 100%;
+}
+
+/* Main image */
+.project2-panel .project2-main {
+  display: block;
+  max-width: 80%;
+  height: auto;
+  position: absolute;
+  top: 0px;   /* vertical placement */
+  left: -190px;
+  border-radius: 0; /* no rounded edges */
+  border: 1px dashed #000; /* only on main image */
+  background: transparent;
+  padding: 8px;
+  transform: rotate(-3deg) scale(0.65);
+  z-index: 2;
+  object-fit: cover;
+}
+
+.character-raj {
+  position: absolute;
+  top: 530px;   /* vertical placement */
+  left: 550px;  /* horizontal placement */
+  width: 700px;
+  /* transform: rotate(-6deg); */
+  z-index: 3;
+  border-radius: 0; /* no rounded edges */
+  border: 1px dashed #000; /* only on main image */
+  background: transparent;
+  padding: 8px;
+}
+
+.boiling-description {
+  top: 120px;   /* vertical placement */
+  left: 700px;
+  max-width: 500px;
+  line-height: 1.6;
+  color: #000;           /* adjust to overlay color if needed */
+  position: absolute;
+}
+
+.raj-description {
+  top: 620px;   /* vertical placement */
+  left: 80px;
+  max-width: 400px;
+  line-height: 1.6;
+  color: #000;           /* adjust to overlay color if needed */
+  position: absolute;
+}
+
+.boiling-grid {
+  width: 100%;
+  max-width: 1400px;
+  margin: 200px auto 0;
+  margin-top: 100px;
+  justify-content: center;  /* <-- centers the grid items horizontally */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+/* Applies to BOTH img + video */
+.grid-item {
+  width: 100%;
+  height: 300px;          /* gives grid consistency */
+  object-fit: cover;      /* makes videos act like images */
+  display: block;
+  border: 1px dashed #000;
+  transition: transform 0.3s ease;
+}
+
+/* Alternate rotation */
+.boiling-grid .grid-item:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+.boiling-grid .grid-item:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+/* Hover effect */
+.boiling-grid .grid-item:hover {
+  transform: rotate(0deg) scale(1.5);
+  z-index: 5;
+}
+
+.raj-description {
+  top: 620px;   /* vertical placement */
+  left: 80px;
+  max-width: 400px;
+  line-height: 1.6;
+  color: #000;           /* adjust to overlay color if needed */
+  position: absolute;
+}
+
+.boiling-grid-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: auto; /* absolute children now stay inside this wrapper */
+}
+
+
+.fan-caption {
+  top: 1580px;   /* vertical placement */
+  left: 880px;
+  max-width: 400px;
+  line-height: 1.6;
+  color: #000;           /* adjust to overlay color if needed */
+  position: absolute;
+}
+
+.boiling-fan-container {
+  position: absolute;
+  width: 520px;
+  height: 400px;
+  top: 1480px;
+  left: 300px;
+  cursor: pointer;
+  transform: rotate(35deg);
+  z-index: 5;
+}
+
+.boiling-fan {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+/* Open state – smooth arc */
+.boiling-fan.open .fan-item:nth-child(1)  { transform: rotate(-45deg) translateX(-220px); }
+.boiling-fan.open .fan-item:nth-child(2)  { transform: rotate(-35deg) translateX(-170px); }
+.boiling-fan.open .fan-item:nth-child(3)  { transform: rotate(-25deg) translateX(-120px); }
+.boiling-fan.open .fan-item:nth-child(4)  { transform: rotate(-15deg) translateX(-70px); }
+
+/* Hover — only scale image, NOT rotate wrapper */
+.boiling-fan.open .fan-item:hover {
+  z-index: 999;
+}
+
+.boiling-fan.open .fan-item:hover .fan-img {
+  transform: scale(1.08) translateY(-20px);
+}
+
+.last-caption {
+  top: 1970px;   /* vertical placement */
+  left: 400px;
+  max-width: 1000px;
+  line-height: 1.6;
+  color: #000;           /* adjust to overlay color if needed */
+  position: absolute;
+}
+
+.spice-1 {
+   position: absolute;
+  top: 20px;   /* vertical placement */
+  left: 80px;  /* horizontal placement */
+  width: 60px;
+  transform: rotate(8deg);
+  z-index: 3;
+  border-radius: 0; /* no rounded edges */
+}
+
+.spice-2 {
+   position: absolute;
+  top: 840px;   /* vertical placement */
+  left: 380px;  /* horizontal placement */
+  width: 100px;
+  transform: rotate(35deg);
+  z-index: 3;
+  border-radius: 0; /* no rounded edges */
+}
+
+.spice-3 {
+   position: absolute;
+  top: 440px;   /* vertical placement */
+  left: 1180px;  /* horizontal placement */
+  width: 60px;
+  transform: rotate(35deg);
+  z-index: 3;
+  border-radius: 0; /* no rounded edges */
+}
+
+.spice-4 {
+   position: absolute;
+  top: 1280px;   /* vertical placement */
+  left: 80px;  /* horizontal placement */
+  width: 60px;
+  transform: rotate(-35deg);
+  z-index: 3;
+  border-radius: 0; /* no rounded edges */
+}
+
+.spice-5 {
+   position: absolute;
+  top: 1380px;   /* vertical placement */
+  left: 1180px;  /* horizontal placement */
+  width: 100px;
+  transform: rotate(35deg);
+  z-index: 3;
+  border-radius: 0; /* no rounded edges */
+}
+
+.spice-6 {
+   position: absolute;
+  top: 1745px;   /* vertical placement */
+  left: 790px;  /* horizontal placement */
+  width: 80px;
+  transform: rotate(35deg);
+  z-index: 3;
+  border-radius: 0; /* no rounded edges */
+}
+
+.doodle-1 {
+   position: absolute;
+  top: 20px;   /* vertical placement */
+  left: 680px;  /* horizontal placement */
+  width: 250px;
+  transform: rotate(8deg);
+  z-index: 3;
+  border-radius: 0; /* no rounded edges */
+}
+
+.doodle-2 {
+   position: absolute;
+  top: 420px;   /* vertical placement */
+  left: 200px;  /* horizontal placement */
+  width: 350px;
+  transform: rotate(8deg);
+  z-index: 3;
+  border-radius: 0; /* no rounded edges */
+}
+
+.doodle-3 {
+   position: absolute;
+  top: 720px;   /* vertical placement */
+  left: 250px;  /* horizontal placement */
+  width: 350px;
+  transform: rotate(7deg);
+  z-index: 3;
+  border-radius: 0; /* no rounded edges */
+}
+
+.doodle-4 {
+   position: absolute;
+  top: 1250px;   /* vertical placement */
+  left: 950px;  /* horizontal placement */
+  width: 350px;
+  transform: rotate(7deg);
+  z-index: 3;
+  border-radius: 0; /* no rounded edges */
+}
+
+.doodle-5 {
+   position: absolute;
+  top: 2050px;   /* vertical placement */
+  left: 620px;  /* horizontal placement */
+  width: 150px;
+  transform: rotate(7deg);
+  z-index: 3;
+  border-radius: 0; /* no rounded edges */
+}
+
+.doodle-6 {
+   position: absolute;
+  top: 1500px;   /* vertical placement */
+  left: 480px;  /* horizontal placement */
+  width: 650px;
+  transform: rotate(7deg);
+  z-index: 1;
+  border-radius: 0; /* no rounded edges */
+}
+
+/* PROJECT 3 */
+
+.maya-page #project3Overlay .overlay-panel {
+  position: relative;
+  text-align: center;
+}
+
+.maya-page #project3Overlay .project3-layout {
+  display: block;
+  position: relative;
+  min-height: 900px;
+  width: 100%;
+}
+
+/* Main image */
+.project3-panel .project3-main {
+  display: block;
+  max-width: 80%;
+  height: auto;
+  position: absolute;
+  top: 0px;   /* vertical placement */
+  left: -190px;
+  border-radius: 0; /* no rounded edges */
+  border: 1px dashed #000; /* only on main image */
+  background: transparent;
+  padding: 8px;
+  transform: rotate(-3deg) scale(0.65);
+  z-index: 2;
+  object-fit: cover;
+}
+
+.traffic-introduction {
+  top: 320px;   /* vertical placement */
+  left: 700px;
+  max-width: 600px;
+  line-height: 1.6;
+  color: #000;           /* adjust to overlay color if needed */
+  position: absolute;
+}
+
+/* Container */
+.traffic-fan-container {
+  position: absolute;
+  top: 550px;
+  left: 800px;
+  width: 400px;
+  height: 300px;
+  cursor: pointer;
+  z-index: 5;
+  /* perspective: 1000px; For 3D fan effect */
+}
+
+/* Fan wrapper */
+.traffic-fan {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 5;
+  /* transform-style: preserve-3d;
+  transition: transform 0.6s ease; */
+}
+
+/* Fan items */
+.traffic-fan-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: bottom center;
+  transition: transform 0.4s ease;
+  border-radius: 0px;
+  z-index: auto;
+}
+
+/* Video */
+.traffic-fan-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0px;
+  border: 1px dashed #000;
+  padding: 8px;
+}
+
+/* Image behind */
+.traffic-fan-base {
+  width: 98%;
+  height: 100%;
+  /* object-fit: cover; */
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0px;
+  border: 1px dashed #000;
+  padding: 8px;
+
+}
+
+/* Open state — spread items like a fan */
+.traffic-fan.open .traffic-fan-video-item {
+  transform: rotate(-10deg) translateX(-280px) translateY(-80px);
+}
+
+.traffic-fan.open .traffic-fan-image-item {
+  transform: rotate(0deg) translateX(0);
+}
+
+/* Hover effect */
+.traffic-fan-item:hover {
+  z-index: 999;
+}
+
+.traffic-fan-item:hover .traffic-fan-video,
+.traffic-fan-item:hover .traffic-fan-base {
+  transform: scale(1.05);
+}
+
+.traffic-p2 {
+ top: 600px;   /* vertical placement */
+  left: 60px;
+  max-width: 400px;
+  line-height: 1.6;
+  color: #000;           /* adjust to overlay color if needed */
+  position: absolute;
+}
+
+
+/* Container */
+.traffic2-fan-container {
+  position: absolute;
+  top: 900px;
+  left: 30px;
+  width: 400px;
+  height: 300px;
+  cursor: pointer;
+  z-index: 5;
+  /* perspective: 1000px; For 3D fan effect */
+}
+
+/* Fan wrapper */
+.traffic2-fan {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 5;
+  /* transform-style: preserve-3d;
+  transition: transform 0.6s ease; */
+}
+
+/* Fan items */
+.traffic2-fan-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: bottom center;
+  transition: transform 0.4s ease;
+  border-radius: 0px;
+  z-index: auto;
+}
+
+/* Video */
+.traffic2-fan-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0px;
+  border: 1px dashed #000;
+  padding: 8px;
+}
+
+/* Image behind */
+.traffic2-fan-base {
+  width: 98%;
+  height: 100%;
+  /* object-fit: cover; */
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0px;
+  border: 1px dashed #000;
+padding: 8px;
+}
+
+/* Open state — spread items like a fan */
+.traffic2-fan.open .traffic2-fan-video-item {
+  transform: rotate(10deg) translateX(280px) translateY(
+    -80px);
+}
+
+.traffic2-fan.open .traffic2-fan-image-item {
+  transform: rotate(0deg) translateX(0);
+}
+
+/* Hover effect */
+.traffic2-fan-item:hover {
+  z-index: 999;
+}
+
+.traffic2-fan-item:hover .traffic2-fan-video,
+.traffic2-fan-item:hover .traffic2-fan-base {
+  transform: scale(1.05);
+}
+
+
+.traffic-grid {
+  width: 100%;
+  max-width: 1400px;
+  margin: 200px auto 0;
+  margin-top: 1200px;
+  justify-content: center;  /* <-- centers the grid items horizontally */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+/* Applies to BOTH img + video */
+.Tgrid-item {
+  width: 100%;
+  height: 300px;          /* gives grid consistency */
+  object-fit: cover;      /* makes videos act like images */
+  display: block;
+  border: 1px dashed #000;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+/* Alternate rotation */
+.traffic-grid .Tgrid-item:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+.traffic-grid .Tgrid-item:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+/* Hover effect */
+.traffic-grid .Tgrid-item:hover {
+  transform: rotate(0deg) scale(1.5);
+  z-index: 5;
+}
+
+.traffic-fact {
+ top: 1000px;   /* vertical placement */
+  left: 760px;
+  max-width: 400px;
+  line-height: 1.6;
+  color: #000;           /* adjust to overlay color if needed */
+  position: absolute;
+}
+
+.Tdoodle-1 {
+   position: absolute;
+  top: 20px;   /* vertical placement */
+  left: 680px;  /* horizontal placement */
+  width: 450px;
+  transform: rotate(8deg);
+  z-index: 3;
+  border-radius: 0; /* no rounded edges */
+}
+
+.Tdoodle-2 {
+   position: absolute;
+  top: 520px;   /* vertical placement */
+  left: 500px;  /* horizontal placement */
+  width: 250px;
+  transform: rotate(8deg);
+  z-index: 3;
+  border-radius: 0; /* no rounded edges */
+}
+
+.Tdoodle-3 {
+   position: absolute;
+  top: 920px;   /* vertical placement */
+  left: 450px;  /* horizontal placement */
+  width: 250px;
+  transform: rotate(8deg);
+  z-index: 3;
+  border-radius: 0; /* no rounded edges */
+}
+
+.Tdoodle-4 {
+   position: absolute;
+  top: 720px;   /* vertical placement */
+  left: 50px;  /* horizontal placement */
+  width: 450px;
+  /* transform: rotate(8deg); */
+  z-index: 3;
+  border-radius: 0; /* no rounded edges */
+}
+
+.Tdoodle-5 {
+   position: absolute;
+  top: 920px;   /* vertical placement */
+  left: 830px;  /* horizontal placement */
+  width: 250px;
+  transform: scaleX(-1);
+  z-index: 3;
+  border-radius: 0; /* no rounded edges */
+}
+
+
+/* --- Fullscreen About Page --- */
+.about-page {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+
+  background: #488ae7;
+  color: rgb(0, 0, 0);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: translateY(-100%);
+  transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+
+  font-family: 'DM Sans', system-ui, sans-serif; /* FORCE body font */
+  color: #F6F1E8;
+}
+
+
+/* Active state */
+.about-page.active {
+  transform: translateY(0);
+}
+
+/* Content */
+.about-page-content {
+  font-family: 'DM Sans', system-ui, sans-serif;    
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+
+.about-page-content h1 {
+  font-family: "Rubik Bubbles", system-ui, sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  letter-spacing: 0.02em;
+  margin-bottom: 2rem;
+}
+
+.about-page-content p {
+   font-family: 'DM Sans', system-ui, sans-serif; /* ensure DM Sans */
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+/* Close button */
+.about-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.about-panel {
+  max-width: 700px;
+  width: 90%;
+  padding: 3rem;
+  background: rgba(20, 20, 20, 0.9);
+  backdrop-filter: blur(20px);
+
+  border-radius: 12px;
+  color: white;
+}
+
+.about-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-content p {
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  opacity: 0.9;
+}
+
+.about-ID {
+   position: absolute;
+  top: 120px;   /* vertical placement */
+  left: 150px;  /* horizontal placement */
+  width: 400px;
+  transform: rotate(-25deg);
+  z-index: 3;
+  border-radius: 0; 
+}
+
+.about-earphones {
+   position: absolute;
+  top: 365px;   /* vertical placement */
+  left: 800px;  /* horizontal placement */
+  width: 470px;
+  transform: rotate(40deg);
+  z-index: 3;
+  border-radius: 0; 
+}
+
+.about-star {
+   position: absolute;
+  top: 340px;   /* vertical placement */
+  left: 960px;  /* horizontal placement */
+  width: 70px;
+  transform: rotate(40deg);
+  z-index: 3;
+  border-radius: 0; 
+}
+
+/* --- Work section breakout --- */
+.editorial-projects {
+  border-top: none;
+  max-width: none;
+  padding-inline: 0;
+}
+
+
+/* --- Editorial grid --- */
+.editorial-grid {
+  position: relative;
+  width: 100vw;
+  height: 140vh; /* give it space to place things */
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.editorial-project {
+  position: absolute;
+  background-image: url("your-frame.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  width: 480px;
+  cursor: pointer;
+  overflow: hidden;
+  border: none;
+  transition: transform 0.4s ease;
+
+}
+
+.editorial-project:nth-child(1) {
+  top: -120px;
+  left: 12%;
+  transform: rotate(-2deg);
+}
+
+.editorial-project:nth-child(2) {
+  top: 10%;
+  left: 55%;
+  transform: rotate(1.5deg);
+}
+
+.editorial-project:nth-child(3) {
+  top: 50%;
+  left: 15%;
+  transform: rotate(-1deg);
+}
+
+.editorial-project:nth-child(1):hover {
+  transform: translateY(-6px) rotate(-5deg);
+}
+
+.editorial-project:nth-child(2):hover {
+  transform: translateY(-6px) rotate(4deg);
+}
+
+.editorial-project:nth-child(3):hover {
+  transform: translateY(-6px) rotate(-4deg);
+}
+
+.editorial-project img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(0.96);
+  transition: none;
+}
+
+/* --- Title --- */
+.editorial-title {
+  position: relative;
+  z-index: 2;
+
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: white;
+
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  pointer-events: none;
+}
+
+/* --- Show title on hover
+.editorial-project:hover .editorial-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+ --- */
+
+
+/* --- Overlay animation (kept, untouched) --- */
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.scrolling-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 77, 18, 0.85);
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 10000;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 16px;
+  padding: 0.6rem 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.scrolling-text {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 20s linear infinite;
+}
+
+.scrolling-text span {
+  display: inline-block;
+  padding-right: 2rem; /* spacing between repeats */
+}
+
+.scrolling-bar a {
+  color: #c7ff66;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.scrolling-bar a:hover {
+  text-decoration: underline;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.3333%); /* move one-third for 3 repeats */
+  }
+}
+
+/* Tooltip container */
+.project-tooltip {
+  position: fixed;
+  pointer-events: none; /* so it doesn’t block cursor interactions */
+  background: rgba(255, 255, 255);
+  color: #000;
+  padding: 15px 15px;
+  border: 1px solid rgba(0, 0, 0);
+  border-radius: 1px;
+  font-size: 1rem;
+  font-weight: 100;
+  font-family: 'DM Sans', sans-serif;
+  /* box-shadow: 0 4px 12px rgba(0,0,0,0.15); */
+  opacity: 0;
+  transform: translate(-50%, -120%);
+  transition: opacity 0.2s ease;
+  z-index: 999;
+  white-space: normal;
+  text-align: center;
+}
+
+/* Overlay */
+.project-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal window */
+.project-modal-content {
+  background: white;
+  width: 70vw;
+  max-width: 900px;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 2rem;
+  border-radius: 12px;
+  position: relative;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+main,
+.section,
+.section-head h2,
+.section-head p,
+.project-title,
+.project-year,
+.project-meta,
+.project-desc,
+.project-cta,
+.about-card,
+.contact-card,
+.footer {
+  color: #000000;
+}
+
+@media (max-width: 480px){
+    .hero-line{
+min-width: 60px;
+    max-width: 120px;  }
+    .hero-signature{
+    width: calc(100vw - 32px);
+  }
+  .hero-role{
+    font-size: 10px;
+    letter-spacing: 0.14em;
+  }
+  .project{
+    grid-template-columns: 1fr;
+  }
+  .media-placeholder{ height: 180px; }
+}
