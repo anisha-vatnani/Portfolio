@@ -640,6 +640,14 @@ max-width: 1200px;
   z-index: 3;
 }
 
+.maya-page #project1Overlay .maya-arrow4 {
+  position: absolute;
+  top: 1280px;   /* vertical placement */
+  left: 35px;  /* horizontal placement */
+  max-width: 250px;
+  z-index: 0;
+}
+
 .maya-page #project1Overlay .maya-arrow {
   position: absolute;
   top: 2380px;   /* vertical placement */
@@ -1220,6 +1228,14 @@ max-width: 1200px;
   transform: rotate(7deg);
   z-index: 1;
   border-radius: 0; /* no rounded edges */
+}
+
+.boiling-arrow4 {
+  position: absolute;
+  top: 1480px;   /* vertical placement */
+  left: 35px;  /* horizontal placement */
+  width: 250px;
+  z-index: 0;
 }
 
 /* PROJECT 3 */
