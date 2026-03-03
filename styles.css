@@ -295,11 +295,11 @@ max-width: 1200px;
   background: transparent;
 }
 
-.section{
+/* .section{
   padding: 22px 0;
   border-top: 1px solid var(--stroke);
   scroll-margin-top: 80px
-}
+} */
 
 .section-head h2{
   margin: 0 0 6px;
@@ -1590,31 +1590,43 @@ padding: 8px;
 }
 
 .about-ID {
+  filter: drop-shadow(0px 10px 3px rgba(0,0,0,0.35));
    position: absolute;
   top: 120px;   /* vertical placement */
   left: 150px;  /* horizontal placement */
   width: 400px;
   transform: rotate(-25deg);
   z-index: 3;
-  border-radius: 0; 
+  border-radius: 10px; 
+  opacity: 85%;
 }
 
 .about-earphones {
    position: absolute;
-  top: 365px;   /* vertical placement */
-  left: 800px;  /* horizontal placement */
+  top: 300px;   /* vertical placement */
+  left: 940px;  /* horizontal placement */
   width: 470px;
-  transform: rotate(40deg);
+  transform: rotate(35deg);
   z-index: 3;
   border-radius: 0; 
 }
 
 .about-star {
    position: absolute;
-  top: 340px;   /* vertical placement */
+  top: 330px;   /* vertical placement */
   left: 960px;  /* horizontal placement */
   width: 70px;
   transform: rotate(40deg);
+  z-index: 3;
+  border-radius: 0; 
+}
+
+.about-pin {
+   position: absolute;
+  top: 160px;   /* vertical placement */
+  left: 160px;  /* horizontal placement */
+  width: 30px;
+  transform: rotate(-40deg);
   z-index: 3;
   border-radius: 0; 
 }
@@ -1708,6 +1720,16 @@ padding: 8px;
   transition: opacity 0.3s ease, transform 0.3s ease;
 
   pointer-events: none;
+}
+
+.contact-hi {
+   position: absolute;
+  top: 1930px;   /* vertical placement */
+  left: 450px;  /* horizontal placement */
+  width: 150px;
+  transform: rotate(-25deg);
+  z-index: 3;
+  border-radius: 0; 
 }
 
 /* --- Show title on hover
