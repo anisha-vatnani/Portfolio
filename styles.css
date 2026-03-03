@@ -38,6 +38,37 @@ body{
   pointer-events: none;
 }
 
+.bg-element1 {
+   position: absolute;   /* position relative to the page */
+  top: 800px;               /* adjust as needed */
+  left: 570px;              /* adjust as needed */
+  z-index: 1;  
+  width: 390px;
+  pointer-events: none;
+  /* transform: rotate(-45deg); */
+}
+
+.bg-element2 {
+   position: absolute;   /* position relative to the page */
+  top: 1200px;               /* adjust as needed */
+  left: 600px;              /* adjust as needed */
+  z-index: 1;  
+  width: 320px;
+  pointer-events: none;
+  /* transform: rotate(-45deg); */
+}
+
+.bg-element3 {
+   position: absolute;   /* position relative to the page */
+  top: 1300px;               /* adjust as needed */
+  left: 1000px;              /* adjust as needed */
+  z-index: 1;  
+  width: 520px;
+  pointer-events: none;
+  transform: rotate(180deg);
+}
+
+
 a{ color: inherit; text-decoration: none; }
 a:hover{ opacity: .9; }
 
